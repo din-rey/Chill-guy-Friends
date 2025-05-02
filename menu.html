@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>menu page</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ======= NAVIGATION ======= -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/logo.jpg" alt="Fry Samaritans Logo" width="30" height="30" class="me-2">
+        <span id="nav-name">Fry Samaritans</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======= ACTIVE LINK SCRIPT ======= -->
+  <script>
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+  <!-- ======= HERO SECTION ======= -->
+  <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                  url(images/menu.png) no-repeat center center/cover;">
+    <h1>Our Menu</h1>
+  </section>
+  
+  <div class="container py-5">
+    <!-- Fried Noodles and Chao Fan Menu -->
+    <h1 class="text-center mb-4" style="font-family: 'Lobster', cursive;">Our Specialties</h1>
+    <div class="row justify-content-center">
+      <!-- Fried Noodles Section -->
+      <div class="col-md-5">
+        <div class="menu-card">
+          <h3 class="text-center text-warning">🍜 Fried Noodles</h3> <!-- Label for Fried Noodles -->
+          <img src="images/noodle.jpg" class="menu-img" alt="Fried Noodles" />
+          <h4>Plain Fried Noodles – ₱40</h4>
+          <label>Add-ons:</label><br>
+          <input type="checkbox" value="5" class="addon"> 2pcs Siomai (+₱5)<br>
+          <input type="checkbox" value="10" class="addon"> Fried Egg (+₱10)<br>
+          <button class="btn btn-add mt-2" onclick="addToCart('Plain Fried Noodles', 40)">Add to Cart</button>
+        </div>
+      </div>
+  
+      <!-- Chao Fan Section -->
+      <div class="col-md-5">
+        <div class="menu-card text-center">
+          <h3 class="text-center text-warning">🍚 Chao Fan</h3> <!-- Label for Chao Fan -->
+          <img src="images/chaofan.jpg" class="menu-img" alt="Chao Fan" />
+          <h4>Plain Chao Fan – ₱40</h4>
+          <label class="d-block mt-2">Add-ons:</label>
+          <div class="text-start d-inline-block">
+            <input type="checkbox" class="addon" value="5" data-name="2pcs Siomai"> 2pcs Siomai (+₱5)<br>
+            <input type="checkbox" class="addon" value="10" data-name="Fried Egg"> Fried Egg (+₱10)<br>
+            <input type="checkbox" class="addon" value="10" data-name="Bacon"> Bacon (+₱10)<br>
+          </div>
+          <button class="btn btn-add mt-3" onclick="addChaoFanToCart()">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+      <!-- Rice Bowls Menu -->
+      <h1 class="text-center mb-4 mt-5">🍱 Rice Bowls Menu</h1>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+          <div class="menu-card">
+            <img src="images/beef.jpg" class="menu-img" alt="Beef Teppanyaki" />
+            <h4>Beef Teppanyaki – ₱55</h4>
+            <label class="d-block mt-2">Additionals:</label>
+            <div class="text-start d-inline-block">
+              <input type="checkbox" class="addon" value="10" data-name="Bacon"> Bacon /pc (+₱10)<br>
+              <input type="checkbox" class="addon" value="5" data-name="Fried Dumplings"> Fried Dumplings /pc (+₱5)<br>
+              <input type="checkbox" class="addon" value="20" data-name="Siomai 5pcs"> Siomai 5pcs (+₱20)<br>
+              <input type="checkbox" class="addon" value="10" data-name="Fried Egg"> Fried Egg /pc (+₱10)<br>
+            </div>
+            <button class="btn btn-add mt-3" onclick="addRiceBowlToCart('Beef Teppanyaki', 55, this)">Add to Cart</button>
+          </div>
+        </div>
+    
+        <div class="col-md-6 col-lg-5">
+          <div class="menu-card">
+            <img src="images/chicken.jpg" class="menu-img" alt="Chicken Tonkatsu" />
+            <h4>Chicken Tonkatsu – ₱50</h4>
+            <label class="d-block mt-2">Additionals:</label>
+            <div class="text-start d-inline-block">
+              <input type="checkbox" class="addon" value="10" data-name="Bacon"> Bacon /pc (+₱10)<br>
+              <input type="checkbox" class="addon" value="5" data-name="Fried Dumplings"> Fried Dumplings /pc (+₱5)<br>
+              <input type="checkbox" class="addon" value="20" data-name="Siomai 5pcs"> Siomai 5pcs (+₱20)<br>
+              <input type="checkbox" class="addon" value="10" data-name="Fried Egg"> Fried Egg /pc (+₱10)<br>
+            </div>
+            <button class="btn btn-add mt-3" onclick="addRiceBowlToCart('Chicken Tonkatsu', 50, this)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Lemonada -->
+      <h1 class="text-center mb-4 mt-5">🍋 Lemonada</h1>
+      <div class="row justify-content-center">
+        <!-- Strawberry -->
+        <div class="col-md-6 col-lg-4">
+          <div class="menu-card text-center">
+            <img src="images/SL.jpg" class="menu-img" alt="Strawberry Lemonade" />
+            <h4>Strawberry Lemonade – ₱25</h4>
+            <label class="d-block mt-2">Add-ons:</label>
+            <div class="text-start d-inline-block">
+              <input type="checkbox" class="addon" value="10" data-name="Popping Bobba"> Popping Bobba (+₱10)<br>
+              <input type="checkbox" class="addon" value="10" data-name="Nata"> Nata (+₱10)<br>
+              <input type="checkbox" class="addon" value="10" data-name="Yakult"> Yakult (+₱10)<br>
+            </div>
+            <button class="btn btn-add mt-3" onclick="addDrinkCheckboxToCart('Strawberry Lemonade', 25, this)">Add to Cart</button>
+          </div>
+        </div>
+    
+        <!-- Blueberry -->
+        <div class="col-md-6 col-lg-4">
+          <div class="menu-card text-center">
+            <img src="images/BL.jpg" class="menu-img" alt="Blueberry Lemonade" />
+            <h4>Blueberry Lemonade – ₱25</h4>
+            <label class="d-block mt-2">Add-ons:</label>
+            <div class="text-start d-inline-block">
+              <input type="checkbox" class="addon" value="10" data-name="Popping Bobba"> Popping Bobba (+₱10)<br>
+              <input type="checkbox" class="addon" value="10" data-name="Nata"> Nata (+₱10)<br>
+              <input type="checkbox" class="addon" value="10" data-name="Yakult"> Yakult (+₱10)<br>
+            </div>
+            <button class="btn btn-add mt-3" onclick="addDrinkCheckboxToCart('Blueberry Lemonade', 25, this)">Add to Cart</button>
+          </div>
+        </div>
+    
+        <!-- Lychee -->
+        <div class="col-md-6 col-lg-4">
+          <div class="menu-card text-center">
+            <img src="images/LL.jpg" class="menu-img" alt="Lychee Lemonade" />
+            <h4>Lychee Lemonade – ₱25</h4>
+            <label class="d-block mt-2">Add-ons:</label>
+            <div class="text-start d-inline-block">
+              <input type="checkbox" class="addon" value="10" data-name="Popping Bobba"> Popping Bobba (+₱10)<br>
+              <input type="checkbox" class="addon" value="10" data-name="Nata"> Nata (+₱10)<br>
+              <input type="checkbox" class="addon" value="10" data-name="Yakult"> Yakult (+₱10)<br>
+            </div>
+            <button class="btn btn-add mt-3" onclick="addDrinkCheckboxToCart('Lychee Lemonade', 25, this)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Sparkling Drinks -->
+      <h1 class="text-center mb-4 mt-5">🫧 Sparkling Drinks</h1>
+      <div class="row justify-content-center">
+        <!-- Sparkling Strawberry -->
+        <div class="col-md-6 col-lg-4">
+          <div class="menu-card text-center">
+            <img src="images/SS.jpg" class="menu-img" alt="Sparkling Strawberry" />
+            <h4>Sparkling Strawberry – ₱30</h4>
+            <p class="text-muted">Soda-based with Strawberry Sparkle</p>
+            <label class="d-block mt-2">Add-ons:</label>
+            <div class="text-start d-inline-block">
+              <input type="checkbox" class="addon" value="10" data-name="Popping Bobba"> Popping Bobba (+₱10)<br>
+              <input type="checkbox" class="addon" value="10" data-name="Nata"> Nata (+₱10)<br>
+            </div>
+            <button class="btn btn-add mt-3" onclick="addDrinkCheckboxToCart('Sparkling Strawberry', 30, this)">Add to Cart</button>
+          </div>
+        </div>
+    
+        <!-- Sparkling Blueberry -->
+        <div class="col-md-6 col-lg-4">
+          <div class="menu-card text-center">
+            <img src="images/BS.jpg" class="menu-img" alt="Sparkling Blueberry" />
+            <h4>Sparkling Blueberry – ₱30</h4>
+            <p class="text-muted">Soda-based with Blueberry Sparkle</p>
+            <label class="d-block mt-2">Add-ons:</label>
+            <div class="text-start d-inline-block">
+              <input type="checkbox" class="addon" value="10" data-name="Popping Bobba"> Popping Bobba (+₱10)<br>
+              <input type="checkbox" class="addon" value="10" data-name="Nata"> Nata (+₱10)<br>
+            </div>
+            <button class="btn btn-add mt-3" onclick="addDrinkCheckboxToCart('Sparkling Blueberry', 30, this)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Cart Section -->
+      <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+          <h3 class="text-center">🛒 Your Cart</h3>
+          <div id="cart" class="border p-3 mb-2">Cart is empty.</div>
+          <h5 class="text-center">Total: ₱<span id="total">0</span></h5>
+          <div class="text-end mt-3">
+            <button class="btn btn-success" onclick="reserveNow()" id="reserveBtn" disabled>Reserve Now</button>
+          </div>
+        </div>
+      </div>
+    </div>  
+    
+    <!-- Footer -->
+    <footer class="text-center py-3 mt-4">
+      <small>&copy; 2025 Fry Samaritans. All rights reserved.</small>
+    </footer>
+  
+    <script>
+      let cart = [];
+      
+      function updateCart() {
+        const cartDiv = document.getElementById("cart");
+        const totalSpan = document.getElementById("total");
+        const reserveBtn = document.getElementById("reserveBtn");
+      
+        if (cart.length === 0) {
+          cartDiv.innerHTML = "Cart is empty.";
+          totalSpan.textContent = "0";
+          reserveBtn.disabled = true;
+          return;
+        }
+      
+        let html = "<ul>";
+        let total = 0;
+      
+        cart.forEach((item, index) => {
+          html += `<li>
+            <strong>${item.name}</strong> – ₱${item.price}<br>
+            ${item.addons.length > 0 ? "<small>Add-ons: " + item.addons.join(", ") + "</small><br>" : ""}
+            <button class="btn btn-sm btn-danger mt-1" onclick="removeFromCart(${index})">Remove</button>
+          </li><hr>`;
+          total += item.price;
+        });
+      
+        html += "</ul>";
+        cartDiv.innerHTML = html;
+        totalSpan.textContent = total;
+        reserveBtn.disabled = false;
+      }
+      
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCart();
+      }
+      
+      function addToCart(name, basePrice) {
+        const parent = event.target.closest(".menu-card");
+        const addons = parent.querySelectorAll(".addon:checked");
+        let totalAddons = 0;
+        let addonList = [];
+      
+        addons.forEach(addon => {
+          totalAddons += parseInt(addon.value);
+          addonList.push(addon.dataset.name || addon.nextSibling.textContent.trim());
+          addon.checked = false;
+        });
+      
+        cart.push({
+          name,
+          price: basePrice + totalAddons,
+          addons: addonList
+        });
+      
+        updateCart();
+      }
+      
+      function addChaoFanToCart() {
+        addToCart("Plain Chao Fan", 40);
+      }
+      
+      function addRiceBowlToCart(name, basePrice, btn) {
+        const parent = btn.closest(".menu-card");
+        const addons = parent.querySelectorAll(".addon:checked");
+        let totalAddons = 0;
+        let addonList = [];
+      
+        addons.forEach(addon => {
+          totalAddons += parseInt(addon.value);
+          addonList.push(addon.dataset.name || addon.nextSibling.textContent.trim());
+          addon.checked = false;
+        });
+      
+        cart.push({
+          name,
+          price: basePrice + totalAddons,
+          addons: addonList
+        });
+      
+        updateCart();
+      }
+      
+      function addDrinkCheckboxToCart(name, basePrice, btn) {
+        const parent = btn.closest(".menu-card");
+        const addons = parent.querySelectorAll(".addon:checked");
+        let totalAddons = 0;
+        let addonList = [];
+      
+        addons.forEach(addon => {
+          totalAddons += parseInt(addon.value);
+          addonList.push(addon.dataset.name || addon.nextSibling.textContent.trim());
+          addon.checked = false;
+        });
+      
+        cart.push({
+          name,
+          price: basePrice + totalAddons,
+          addons: addonList
+        });
+      
+        updateCart();
+      }
+      
+      function reserveNow() {
+        alert("Thank you! Your order has been reserved.");
+        cart = [];
+        updateCart();
+      }
+    </script>
+
+    <!-- AOS animation (optional, if you're using AOS) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <!-- ✅ Bootstrap Bundle JS for Navbar -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

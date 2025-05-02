@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home page</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/logo.jpg" alt="Fry Samaritans Logo" width="30" height="30" class="me-2">
+        <span id="nav-name">Fry Samaritans</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- NAV SCRIPT -->
+  <script>
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+  <!-- ======= HERO SECTION ======= -->
+  <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                  url(images/cartoon.jpg) no-repeat center center/cover;">
+    <h1>Welcome to Fry Samaritans!</h1>
+    <p class="tagline">"Katsu par?"</p>
+  </section>
+
+  
+  <!-- DESCRIPTION -->
+  <section class="description-section">
+    <div class="container">
+      <h1 class="text-center mb-5 fw-bold" id="fry-abt" data-aos="fade-down" data-aos-duration="1000">Fry Samaritans</h1>
+      <div class="row align-items-center">
+        
+        <!-- Chef Image and Name -->
+        <div class="col-md-6 text-center mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="1200">
+          <img src="images/par.jpg" alt="Chef Par" class="chef-img mb-3">
+          <h5 class="mt-2">Chef Par</h5>
+        </div>
+
+        <!-- Description -->
+        <div class="col-md-6" data-aos="fade-left" data-aos-duration="1200">
+          <p class="text-white lead">
+            Fry Samaritans is a beloved food stall at PSAU, founded in 2019 by Ralph Ian Aquino, also known as Par. 
+            Driven by his passion for food and financial motivation, Par started with a rolling store before establishing 
+            their permanent spot at PSAU. Alongside his wife and three trusted staff members, Fry Samaritans continues to serve 
+            top-notch, affordable meals—especially their best-selling Chicken Tonkatsu rice bowls.
+          </p>
+          <p class="text-white">
+            With the tagline <strong>“Katsu par?”</strong>, they’ve become a staple go-to for students craving quality comfort food. 
+            Stall hours run from <strong>8 AM to 5 PM</strong>, and you can check them out on Facebook here: 
+            <a href="https://www.facebook.com/frysamaritans.friednoodles" target="_blank" class="text-warning fw-bold">
+              Fry Samaritans – Fried Noodles
+            </a>.
+          </p>
+        </div>
+        <div class="d-flex justify-content-center">
+          <a href="about.html" class="btn btn-warning mt-3">View more about us..</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- ======= MENU SECTION ======= -->
+  <h2 class="mb-3 text-center" id="Menu" data-aos="fade-down" data-aos-duration="1000">Our Specialties</h2>
+  <div class="photo-grid">
+    <div class="photo best-seller" data-aos="zoom-in" data-aos-duration="1200">
+      <img src="images/chicken.jpg" alt="Chicken Tonkatsu" class="gallery-img">
+      <div class="photo-label">Chicken Tonkatsu</div>
+      <div class="best-seller-badge">Best Seller</div>
+    </div>    
+    <div class="photo" data-aos="zoom-in" data-aos-duration="1200">
+      <img src="images/beef.jpg" alt="Beef Teppanyaki" class="gallery-img">
+      <div class="photo-label">Beef Teppanyaki</div>
+    </div>
+    <div class="photo" data-aos="zoom-in" data-aos-duration="1200">
+      <img src="images/noodle.jpg" alt="Fried Noodles" class="gallery-img">
+      <div class="photo-label">Fried Noodles</div>
+    </div>
+    <div class="photo" data-aos="zoom-in" data-aos-duration="1200">
+      <img src="images/chaofan.jpg" alt="Chao Fan" class="gallery-img">
+      <div class="photo-label">Chao Fan</div>
+    </div>
+    <div class="photo" data-aos="zoom-in" data-aos-duration="1200">
+      <img src="images/lemonada.jpg" alt="Lemonada" class="gallery-img">
+      <div class="photo-label">Lemonada</div>
+    </div>
+    <div class="photo" data-aos="zoom-in" data-aos-duration="1200">
+      <img src="images/sparkle.jpg" alt="Sparkling Berries" class="gallery-img">
+      <div class="photo-label">Sparkling Berries</div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <a href="Menu.html" class="btn btn-warning mt-3">View Menu</a>
+  </div>
+
+  <!-- ======= MAP SECTION ======= -->
+  <section id="map" class="container my-5">
+    <h2 class="text-center mb-4" id="pin">📍 Find Us Here</h2>
+    <div class="ratio ratio-16x9">
+      <iframe 
+        src="https://www.google.com/maps?q=15.220121,120.696347&hl=en&z=16&output=embed"
+        style="border:0;" 
+        allowfullscreen 
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <p class="text-center mt-2">Pampanga State Agricultural University (PSAU)</p>
+  </section>
+
+  <!-- ======= RESERVATION SECTION ======= -->
+  <section class="text-center my-5">
+    <h2 class="mb-3" id="rsrv">Katsu, Par? Reserve Now!</h2>
+    <form id="reservationForm" class="container" style="max-width: 400px;">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="resName" placeholder="Your Name" required>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="resOrder" placeholder="Your Preferred Dish">
+      </div>
+      <button type="submit" class="btn btn-warning">Reserve Now</button>
+    </form>
+  </section>
+
+  <!-- ======= BOOTSTRAP JS ======= -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ======= RESERVATION FORM SCRIPT ======= -->
+  <script>
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('resName').value;
+      const order = document.getElementById('resOrder').value;
+
+      if (name.trim() === "") {
+        alert("Please enter your name!");
+        return;
+      }
+
+      alert(`Thanks ${name}! We've noted your reservation${order ? " for " + order : ""}. See you soon! 🍽️`);
+      this.reset();
+    });
+  </script>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="text-center py-3 mt-4">
+    <small>&copy; 2025 Fry Samaritans. All rights reserved.</small>
+  </footer>
+  
+</body>
+</html>
